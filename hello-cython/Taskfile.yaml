@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 tasks:
   build:
@@ -6,3 +6,13 @@ tasks:
       - python3 setup.py build_ext --inplace
     sources:
       - "*.pyx"
+      - "setup.py"
+    generates:
+      - "build/"
+      - "*.c"
+      - "*.so"
+
+  run:
+    cmds:
+      - python3 -c "import hello"
+    silent: true
